@@ -42,8 +42,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class SharedMemoryMatchingManager implements MatchingManager, Serializable {
 
-	private static final long serialVersionUID = 1L;
-	private static final Log log = LogFactory.getLog(SharedMemoryMatchingManager.class);
+    private static final long serialVersionUID = 1L;
+    private static final Log log = LogFactory.getLog(SharedMemoryMatchingManager.class);
     private static boolean cacheInit = false;
 
     private static Cache<Integer, SharedMemorySubscriptionStorage> getTenantIDInMemorySubscriptionStorageCache() {
