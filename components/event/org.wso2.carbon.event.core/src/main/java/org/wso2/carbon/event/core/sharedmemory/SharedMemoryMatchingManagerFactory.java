@@ -30,6 +30,10 @@ import javax.cache.Cache;
 
 public class SharedMemoryMatchingManagerFactory implements MatchingManagerFactory {
 
+	//In cluster environment, there should be single SharedMemoryMatchingManager instance.
+	//use this is key to store the instance in shared cache.
+	private static final int MATCHING_MANAGER_INSTANCE_KEY = 1;
+	
 	private static Cache<Integer, SharedMemoryMatchingManager> getInMemoryMatchingCache() {
         return SharedMemoryCacheUtil.getInMemoryMatchingCache();
     }
@@ -37,9 +41,9 @@ public class SharedMemoryMatchingManagerFactory implements MatchingManagerFactor
     public MatchingManager getMatchingManager(OMElement config) throws EventBrokerConfigurationException {
         SharedMemoryMatchingManager inMemoryMatchingManager = null ;
 
-        if(getInMemoryMatchingCache().get(1) == null) {
+        if(getInMemoryMatchingCache().get(MATCHING_MANAGER_INSTANCE_KEY) == null) {
             inMemoryMatchingManager = new SharedMemoryMatchingManager();
-            getInMemoryMatchingCache().put(1, inMemoryMatchingManager);
+            getInMemoryMatchingCache().put(MATCHING_MANAGER_INSTANCE_KEY, inMemoryMatchingManager);
         }
 
         try {

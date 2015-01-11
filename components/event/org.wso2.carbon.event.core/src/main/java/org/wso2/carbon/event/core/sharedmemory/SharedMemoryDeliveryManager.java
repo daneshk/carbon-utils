@@ -110,9 +110,8 @@ public class SharedMemoryDeliveryManager implements DeliveryManager {
                         userName,
                         resourcePath,
                         EventBrokerConstants.EB_PERMISSION_PUBLISH)) {
-                List<Subscription> subscriptions = getMatchingManager().getMatchingSubscriptions(topicName);
 
-                for (Subscription subscription : subscriptions) {
+                for (Subscription subscription : getMatchingManager().getMatchingSubscriptions(topicName)) {
                     String verified = org.wso2.carbon.event.core.sharedmemory.SharedMemorySubscriptionStorage
                     						.getSubscriptionIDTopicNameCache().get(subscription.getId()+"-notVerfied");
                     
@@ -157,6 +156,8 @@ public class SharedMemoryDeliveryManager implements DeliveryManager {
     public synchronized MatchingManager getMatchingManager() throws EventBrokerConfigurationException {
         SharedMemoryMatchingManager inMemoryMatchingManager = getInMemoryMatchingCache().get(1);
 
+        //In cluster environment, there should be single SharedMemoryMatchingManager instance.
+        //use constant key[1] to store the instance in shared cache.
         if(inMemoryMatchingManager == null) {
             inMemoryMatchingManager = new SharedMemoryMatchingManager();
             getInMemoryMatchingCache().put(1, inMemoryMatchingManager);
