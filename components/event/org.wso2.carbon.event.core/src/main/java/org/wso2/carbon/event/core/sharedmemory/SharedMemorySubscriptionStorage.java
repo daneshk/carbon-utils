@@ -177,12 +177,12 @@ public class SharedMemorySubscriptionStorage implements Serializable {
 
         String val = subscription.getProperties().get("notVerfied");
         if(val == null) {
-            getSubscriptionIDTopicNameCache().put(subscription.getId()+"-notVerfied", "false");
+            getSubscriptionIDTopicNameCache().put(subscription.getId() + "-notVerfied", "false");
         } else {
             if("true".equalsIgnoreCase(val)) {
-                getSubscriptionIDTopicNameCache().put(subscription.getId()+"-notVerfied", "true");
+                getSubscriptionIDTopicNameCache().put(subscription.getId() + "-notVerfied", "true");
             } else {
-                getSubscriptionIDTopicNameCache().put(subscription.getId()+"-notVerfied", "false");
+                getSubscriptionIDTopicNameCache().put(subscription.getId() + "-notVerfied", "false");
             }
         }
     }

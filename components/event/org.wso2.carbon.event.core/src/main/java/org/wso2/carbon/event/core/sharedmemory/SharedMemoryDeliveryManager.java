@@ -84,7 +84,7 @@ public class SharedMemoryDeliveryManager implements DeliveryManager {
                                + " is not allowed to subscribes to " + subscription.getTopicName());
             }
         } catch (UserStoreException e) {
-            throw new EventBrokerException("Can not access the user store manager",e);
+            throw new EventBrokerException("Can not access the user store manager", e);
         }
 
     }
@@ -126,7 +126,7 @@ public class SharedMemoryDeliveryManager implements DeliveryManager {
                         + " is not allowed to publish to " + topicName);
             }
         } catch (UserStoreException e) {
-            throw new EventBrokerException("Can not access the user store manager",e);
+            throw new EventBrokerException("Can not access the user store manager", e);
         }
     }
 

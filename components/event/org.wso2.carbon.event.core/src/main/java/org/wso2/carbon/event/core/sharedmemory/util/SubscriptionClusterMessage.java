@@ -70,8 +70,8 @@ public class SubscriptionClusterMessage extends ClusteringMessage implements
             SubscriptionContainer subscriptionsContainer = SharedMemorySubscriptionStorage.getTopicSubscriptionCache().get(topicName);
 
             if (subscriptionsContainer != null){
-            	subscriptionsContainer.getSubscriptionsCache().get(subscriptionID);
-            	log.info("Subscription ID: "+subscriptionID+" for the topic: "+topicName+" is received.");
+                subscriptionsContainer.getSubscriptionsCache().get(subscriptionID);
+                log.info("Subscription ID: " + subscriptionID + " for the topic: " + topicName + " is received.");
             }          
 
         }
