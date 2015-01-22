@@ -212,12 +212,12 @@ public class SharedMemorySubscriptionStorage implements Serializable {
         return matchingTopicNames;
     }
 
-    private String getTopicName(String topicName){
-        if (!topicName.startsWith("/")){
+    private String getTopicName(String topicName) {
+        if (!topicName.startsWith("/")) {
             topicName = "/" + topicName;
         }
 
-        if (topicName.endsWith("/") && (topicName.length() != 1)){
+        if (topicName.endsWith("/") && (topicName.length() != 1)) {
             topicName = topicName.substring(0, topicName.lastIndexOf('/'));
         }
 
