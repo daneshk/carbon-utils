@@ -50,7 +50,7 @@ public class SharedMemoryMatchingManagerFactory implements MatchingManagerFactor
             //call initialize tenant for super tenant
             inMemoryMatchingManager.initializeTenant();
         } catch (EventBrokerException e) {
-            throw new EventBrokerConfigurationException("Can not initialize the in memory mathing manager",e);
+            throw new EventBrokerConfigurationException("Can not initialize the in memory matching manager", e);
         }
         return inMemoryMatchingManager;
     }

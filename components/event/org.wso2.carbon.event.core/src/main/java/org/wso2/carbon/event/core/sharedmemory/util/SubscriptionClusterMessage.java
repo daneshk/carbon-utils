@@ -47,9 +47,6 @@ public class SubscriptionClusterMessage extends ClusteringMessage implements
 		this.tenantDomain = tenantDomain;
 	}
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4585980192987552283L;
 
 	@Override
@@ -58,7 +55,7 @@ public class SubscriptionClusterMessage extends ClusteringMessage implements
 	}
 
 	@Override
-	public void execute(ConfigurationContext arg0) throws ClusteringFault {
+	public void execute(ConfigurationContext configurationContext) throws ClusteringFault {
 
         try {
             PrivilegedCarbonContext.startTenantFlow();
@@ -71,7 +68,9 @@ public class SubscriptionClusterMessage extends ClusteringMessage implements
 
             if (subscriptionsContainer != null){
                 subscriptionsContainer.getSubscriptionsCache().get(subscriptionID);
-                log.info("Subscription ID: " + subscriptionID + " for the topic: " + topicName + " is received.");
+                if(log.isDebugEnabled()) {
+                    log.debug("Subscription ID: " + subscriptionID + " for the topic: " + topicName + " is received.");
+                }
             }          
 
         }

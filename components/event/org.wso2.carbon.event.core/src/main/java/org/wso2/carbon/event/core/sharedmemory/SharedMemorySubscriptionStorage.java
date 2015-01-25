@@ -47,7 +47,7 @@ import java.util.concurrent.TimeUnit;
 @SuppressWarnings("serial")
 public class SharedMemorySubscriptionStorage implements Serializable {
 
-    private static boolean topicSubscriptionCacheInit =false;
+    private static boolean topicSubscriptionCacheInit = false;
     private static boolean tenantIDInMemorySubscriptionStorageCacheInit = false;
 	private static final Log log = LogFactory.getLog(SharedMemorySubscriptionStorage.class);
 
@@ -190,7 +190,7 @@ public class SharedMemorySubscriptionStorage implements Serializable {
     private List<String> getTopicMatchingNames(String topicName) {
         List<String> matchingTopicNames = new ArrayList<String>();
 
-        if (topicName.equals("/")) {
+        if ("/".equals(topicName)) {
             matchingTopicNames.add("/#");
         } else {
             String currentTopicName = "";
