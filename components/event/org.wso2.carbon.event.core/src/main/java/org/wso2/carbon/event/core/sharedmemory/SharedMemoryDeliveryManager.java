@@ -113,7 +113,7 @@ public class SharedMemoryDeliveryManager implements DeliveryManager {
 
                 for (Subscription subscription : getMatchingManager().getMatchingSubscriptions(topicName)) {
                     String verified = org.wso2.carbon.event.core.sharedmemory.SharedMemorySubscriptionStorage
-                    						.getSubscriptionIDTopicNameCache().get(subscription.getId()+"-notVerfied");
+                            .getSubscriptionIDTopicNameCache().get(subscription.getId() + "-notVerfied");
                     
                     if(verified != null && "false".equalsIgnoreCase(verified)){
                             subscription.addProperty("notVerfied", "false");

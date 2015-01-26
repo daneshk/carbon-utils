@@ -115,8 +115,8 @@ public class SharedMemorySubscriptionStorage implements Serializable {
 					subscription.getTenantId(),
 					subscription.getTenantDomain());
 		} catch (ClusteringFault e) {
-			//This happen due to hazelcast clustering not setup correctly. subscription cluster will not send to other nodes.
-			log.error("Subscription cluster message sending failed",e);
+			//This happen due to hazelcast clustering not setup correctly. subscription will not send to other nodes.
+			log.error("Subscription cluster message sending failed", e);
 		}
     }
 
